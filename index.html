@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Tic Tac</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./animations.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=fJh5UeiULZs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </iframe>
+    <h1 id="titre">Compte à rebours</h1>
+    <div class="tableau">
+        <table>
+            <tr>
+                <th>DÉBUT DU TOURNOIS</th>
+                <th>FIN TU TEMPS DE CHOIX DE VOITURE</th>
+            </tr>
+            <tr>
+                <td id="countdown1" style="text-align: center;"></td>
+                <td id="countdown2" style="text-align: center;"></td>
+            </tr>
+        </table>
+
+        <script>
+            // définir les dates de fin de compte à rebours
+            var countDownDate1 = new Date("Feb 11, 2023 21:00:00").getTime();
+            var countDownDate2 = new Date("Jul 01, 2023 17:30:00").getTime();
+
+            function updateCountdown(distance, id) {
+                // calculer les mois, jours, heures et secondes
+                var months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
+                var days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // vérifier si le temps restant est inférieur ou égal à zéro et afficher un message de fin approprié avec une image différente
+                if (distance <= 0) {
+                    switch (id) {
+                        case "countdown1":
+                        document.getElementById(id).innerHTML = "<img src='url de l'image 1' alt='image 1'>"
+                    break;
+                        case "countdown2":
+                        document.getElementById(id).innerHTML = "<img src='url de l'image 2' alt='image 2'>"
+                    break;
+                    default:
+                    break;
+                    }
+                } else {
+                // afficher le compte à rebours dans les éléments HTML
+                document.getElementById(id).innerHTML = " " + months + " mois " + days + " jours " + hours + " heures " + minutes + " minutes " + seconds + " secondes ";
+                }
+            }
+        // appeler la fonction updateCountdown toutes les 1000ms (1 seconde)
+        setInterval(function() {
+            var now1 = new Date().getTime();
+            var distance1 = countDownDate1 - now1;
+            updateCountdown(distance1, "countdown1");
+
+            var now2 = new Date().getTime();
+            var distance2 = countDownDate2 - now2;
+            updateCountdown(distance2, "countdown2");
+        }, 1000);
+    </script>
+</div>
+</body>
+</html>

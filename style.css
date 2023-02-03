@@ -1,0 +1,34 @@
+#titre {
+    text-align: center;
+    border: 2px solid black;
+    font-family: 'Courier New', Courier, monospace;
+}
+.tableau {
+    border: 2px solid black;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    width: 100%; /* largeur du body = largeur de l'écran */
+    margin: 0; /* retirer les marges par défaut */
+    background-image: url('background.jpg');
+    background-size: 350%;
+}
+table {
+    width: 80%; /* définir la largeur du tableau */
+    margin: 0 auto; /* centrer horizontalement le tableau */
+    display: flex;
+    justify-content: center;
+}
+td {
+    border: 2px solid black;
+    white-space: pre-wrap;
+    height: 100px;
+    overflow: auto;
+}
+#clock {
+    animation-name: clock-animation;
+    animation-delay: 0s;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
